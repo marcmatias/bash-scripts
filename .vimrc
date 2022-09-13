@@ -22,13 +22,13 @@ autocmd FileType markdown set tabstop=2
 autocmd BufNewFile,BufRead *.md set filetype=markdown
 
 " Setting a theme
-colorscheme ayu
+colorscheme molokai
 
 " Set more variable colors
 set termguicolors
 
 " Force background transparent in personalized themes
-hi Normal guibg=NONE ctermbg=NONE
+" hi Normal guibg=NONE ctermbg=NONE
 
 " Highlight white spaces
 highlight RedundantSpaces ctermbg=red guibg=red
