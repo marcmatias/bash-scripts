@@ -24,6 +24,9 @@ autocmd BufNewFile,BufRead *.md set filetype=markdown
 " Setting a theme
 colorscheme molokai
 
+" Show cursor line
+set cursorline
+
 " Set more variable colors
 set termguicolors
 
