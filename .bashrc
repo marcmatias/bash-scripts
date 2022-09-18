@@ -21,21 +21,13 @@ fi
 # Theme toggle KDE
 alias toggleTheme="sh ~/Documents/workspaces/studies/bash-scripts/scripts/toggleThemeKDE"
 
+export WORK='/home/marcmatias/Documents/workspaces/work/'
+
+# Powerline styles if not a tty terminal
+RES=$(tty)
+if [[ $RES == *"dev/pts/"* ]] ; then . ${HOME}/.powerline-marcmatias-theme.bash; fi
+
 # Pyenv config, showing virutalenv name without warning
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-export BASE_PROMPT=$PS1
-function updatePrompt {
-  if [[ "$(pyenv virtualenvs)" == *"* $(pyenv version-name) "* ]]; then
-    export PS1='($(pyenv version-name)) '$BASE_PROMPT
-  else
-    export PS1=$BASE_PROMPT
-  fi
-}
-export PROMPT_COMMAND='updatePrompt'
-
-export WORK='/home/marcmatias/Documents/workspaces/work/'
-
-RES=$(tty)
-if [[ $RES == *"dev/pts/"* ]] ; then . ${HOME}/.powerline-marcmatias-theme.bash; fi
