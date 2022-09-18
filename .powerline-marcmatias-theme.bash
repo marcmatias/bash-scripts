@@ -10,6 +10,7 @@ PS_On_Gray='\[\e[48;5;241m\]'
 PS_Gray='\[\e[38;5;241m\]'
 PS_Black='\[\e[0;30m\]'
 PS_On_White='\[\e[47m\]'
+PS_On_Green='\[\e[42m\]'
 PS_Blue='\[\e[0;34m\]'
 PS_On_Blue='\[\e[44m\]'
 PS_White='\[\e[0;37m\]'
@@ -82,6 +83,10 @@ _prompt ()
 
   PS1="${PS_White}${PS_On_Gray} $ps1_header ${PS_Gray}${PS_On_Blue}\
 ${PS_White}${PS_On_Blue}${PWD_HOME}${git_prompt_info}${PS_Color_Off} "
+
+  if [[ "$(pyenv virtualenvs)" == *"* $(pyenv version-name) "* ]]; then
+    PS1="${PS_Black}${PS_On_Green} $(pyenv version-name) ${PS_Green}${PS_On_Gray}"$PS1
+  fi
 
   unset folder_type_icon ps1_header git_prompt_info date_str
 
