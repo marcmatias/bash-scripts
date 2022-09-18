@@ -35,9 +35,7 @@ function updatePrompt {
 }
 export PROMPT_COMMAND='updatePrompt'
 
-export WP_I18N_LIB="/usr/lib/wpi18n"
-
 export WORK='/home/marcmatias/Documents/workspaces/work/'
 
-RES_TTY=$(tty)
-if [[ $RES_TTY == *"dev/pts/"* ]] ; then . ${HOME}/.powerline-marcmatias-theme.bash; fi
+RES=$(tty)
+if [[ $RES == *"dev/pts/"* ]] ; then . ${HOME}/.powerline-marcmatias-theme.bash; fi
