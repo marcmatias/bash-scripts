@@ -20,6 +20,7 @@ autocmd FileType markdown set tabstop=2
 
 " Treat all .md files as markdown
 autocmd BufNewFile,BufRead *.md set filetype=markdown
+let g:markdown_fenced_languages = ['typescript', 'python', 'ruby', 'go', 'javascript', 'bash']
 
 " Setting a theme
 colorscheme molokai
@@ -52,7 +53,7 @@ python3 powerline_setup()
 python3 del powerline_setup
 
 " Minibar showing actual file
-set laststatus=2
+" set laststatus=2
 
 " Plugins
 call plug#begin()
