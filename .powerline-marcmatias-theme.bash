@@ -6,15 +6,10 @@ PS_Green='\[\e[32m\]'
 PS_Red='\[\e[31m\]'
 PS_Purple='\[\e[35m\]'
 PS_Color_Off='\[\e[0m\]'
-PS_On_Gray='\[\e[48;5;241m\]'
 PS_Gray='\[\e[38;5;241m\]'
 PS_Black='\[\e[0;30m\]'
-PS_On_White='\[\e[47m\]'
-PS_On_Green='\[\e[42m\]'
 PS_Blue='\[\e[0;34m\]'
-PS_On_Blue='\[\e[44m\]'
 PS_White='\[\e[0;37m\]'
-PS_On_Black='\[\e[40m\]'
 
 _setup_ssh_prompt ()
 {
@@ -57,10 +52,10 @@ _git_colors () {
   _git_branch
 
   if [ "$git_branch_info" ] ; then
-    git_prompt_info="${Blue}${On_Purple}${White}${On_Purple} \
-${git_branch_info} ${Purple}${Color_Off}"
+    git_prompt_info="${Blue}⇾ ${White} \
+${Purple}${git_branch_info} ⇾ ${Color_Off}"
   else
-    git_prompt_info="${Blue}${Color_Off}"
+    git_prompt_info="${Blue}⇾ ${Color_Off}"
   fi
 
   unset git_branch_info
@@ -81,11 +76,10 @@ _prompt ()
     PWD_HOME=" / "
   fi
 
-  PS1="${PS_White}${PS_On_Gray} $ps1_header ${PS_Gray}${PS_On_Blue}\
-${PS_White}${PS_On_Blue}${PWD_HOME}${git_prompt_info}${PS_Color_Off} "
+  PS1="${PS_Blue}${PWD_HOME}${git_prompt_info}${PS_Color_Off} "
 
   if [[ "$(pyenv virtualenvs)" == *"* $(pyenv version-name) "* ]]; then
-    PS1="${PS_Black}${PS_On_Green} $(pyenv version-name) ${PS_Green}${PS_On_Gray}"$PS1
+    PS1="${PS_Green}$(pyenv version-name) ⇾ "$PS1
   fi
 
   unset folder_type_icon ps1_header git_prompt_info date_str
