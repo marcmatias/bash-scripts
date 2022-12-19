@@ -1,6 +1,8 @@
 set encoding=utf-8
 syntax enable
 
+" Copy to X11 clipboard
+set clipboard=unnamedplus
 " Show numbers
 set number
 " Show searchs
