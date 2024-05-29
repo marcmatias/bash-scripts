@@ -9,6 +9,7 @@ set number
 set incsearch
 " Automatic indent
 set autoindent
+set relativenumber
 
 set expandtab
 set softtabstop=2
@@ -16,6 +17,12 @@ set shiftwidth=2
 
 set autoindent
 " set textwidth=80
+
+" Show numbers in netrw
+let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
+
+" E command open Explore
+" command! E Explore
 
 autocmd FileType markdown setlocal spell spelllang=en_us,pt_br
 autocmd FileType markdown set tabstop=2
@@ -34,7 +41,7 @@ set cursorline
 set termguicolors
 
 " Force background transparent in personalized themes
-" hi Normal guibg=NONE ctermbg=NONE
+hi Normal guibg=NONE ctermbg=NONE
 
 " Highlight white spaces
 highlight RedundantSpaces ctermbg=red guibg=red
@@ -64,6 +71,11 @@ call plug#begin()
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'mattn/emmet-vim'
 
+Plug 'heavenshell/vim-jsdoc', {
+  \ 'for': ['javascript', 'javascript.jsx','typescript'],
+  \ 'do': 'make install'
+\}
+
 call plug#end()
 
 " Make <CR> to accept selected completion item or notify coc.nvim to format
@@ -71,3 +83,5 @@ call plug#end()
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
+" Add mapping for CTRL+SHIFT+C to copy selected text to clipboard wayland
+xnoremap <silent> <C-S-C> :w !wl-copy<CR><CR>
